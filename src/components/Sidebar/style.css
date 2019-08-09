@@ -1,0 +1,38 @@
+nav#side-bar {
+  height: 100%;
+  width: 10rem;
+  background: white;
+  display: block;
+  position: fixed;
+  border: solid 1px black;
+}
+
+#side-bar > ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#side-bar > ul > a {
+  color: initial;
+  text-decoration: none;
+}
+
+#side-bar > ul > a > li {
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+  margin: 1rem 0;
+  background-color: red;
+}
+
+#side-bar > ul > a > li:hover {
+  cursor: pointer;
+  background: blue;
+}
+
+/* #side-bar > ul > li:hover > span {
+
+} */

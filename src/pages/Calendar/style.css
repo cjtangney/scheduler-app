@@ -1,0 +1,261 @@
+html, body {
+  font-family: sans-serif;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+/*
+button#open-date-picker {
+  background: #20262e;
+  border: solid 1px white;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 1rem 2rem;
+}
+
+button#open-date-picker:hover {
+  background: white;
+  color: #20262e;
+  cursor: pointer;
+  font-weight: 600;
+}
+*/
+
+section#scheduler {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div#date-picker {
+  width: 100%;
+  max-width: 75rem;
+  margin: 0 auto;
+  border: solid 1px #4e4e4e;
+}
+
+div#date-picker > .row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+  border-bottom: solid 1px #4e4e4e;
+}
+
+div#date-picker > .row:last-child {
+  border-bottom: none;
+}
+
+div#date-picker > .row#days-of-week > div {
+  background: #4e4e4e;
+  color: white;
+  text-align: center;
+  width: 100%;
+  border-right: solid 1px white;
+  padding: 1rem;
+  font-weight: 600;
+}
+
+div#date-picker > .row#row0 > div,
+div#date-picker > .row#row1 > div,
+div#date-picker > .row#row2 > div,
+div#date-picker > .row#row3 > div,
+div#date-picker > .row#row4 > div,
+div#date-picker > .row#row5 > div,
+div#date-picker > .row#row6 > div {
+  width: calc(100% / 7);
+  padding: 0.25rem 0 0 0.25rem;
+  height: 7rem;
+  border-right: solid 1px #4e4e4e;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+div#date-picker > .row > div span.date-label {
+  position: relative;
+  top: -50%;
+}
+
+div#date-picker > .row#row0 > div:hover,
+div#date-picker > .row#row1 > div:hover,
+div#date-picker > .row#row2 > div:hover,
+div#date-picker > .row#row3 > div:hover,
+div#date-picker > .row#row4 > div:hover,
+div#date-picker > .row#row5 > div:hover,
+div#date-picker > .row#row6 > div:hover {
+  cursor: pointer;
+  background: #1e87bb;
+  color: white;
+  transition: all linear 0.125s;
+}
+
+div#date-picker > .row#row0 > div:last-child,
+div#date-picker > .row#row1 > div:last-child,
+div#date-picker > .row#row2 > div:last-child,
+div#date-picker > .row#row3 > div:last-child,
+div#date-picker > .row#row4 > div:last-child,
+div#date-picker > .row#row5 > div:last-child,
+div#date-picker > .row#row6 > div:last-child {
+  border-right: none;
+}
+
+div#date-picker > .row#days-of-week > div:last-child {
+  border-right: none;
+}
+
+div#date-details-modal {
+  background: rgba(0, 0, 0, 0.55);
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: none;
+  visibility: hidden;
+  z-index: 90;
+}
+
+div#date-details-modal.open {
+  display: block;
+  visibility: visible;
+}
+
+
+div.date-details-content {
+  background: #f1f1f1;
+  border-radius: 5px;
+  color: black;
+  padding: 1rem;
+  z-index: 100;
+  margin: 1rem auto;
+  position: relative;
+  top: 10%;
+  max-width: 40rem;
+  box-shadow: 0px 0px 30px 2px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0px 0px 30px 2px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0px 0px 30px 2px rgba(0,0,0,0.5);
+}
+
+div.date-details-content > .date-details-modal-close {
+  position: absolute;
+  left: 15px;
+  top: 8px;
+}
+
+div.date-details-content > .date-details-modal-close > i {
+  font-size: 16px;
+  color: #868686;
+  border: solid 1px #868686;
+  border-radius: 50%;
+}
+
+div.date-details-content > .date-details-modal-close > i:hover {
+  cursor: pointer;
+  color: #4e4e4e;
+  border: solid 1px #4e4e4e;
+}
+
+div#date-details-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 125%;
+  margin-bottom: 1rem;
+  padding-top: 1.5rem;
+}
+
+span.no-shifts-header {
+  display: flex;
+  justify-content: center;
+  font-size: 125%;
+  margin: 0 auto 1rem auto;
+  padding-top: 1.5rem;
+  width: 100%;
+}
+
+div#shifts > [class*="shift-"] {
+  width: 100%;
+  font-size: 115%;
+  margin-bottom: 1rem;
+}
+
+div#shifts > [class*="shift-"] > .shift-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+div#shifts > [class*="shift-"] [class*="workers-"] {
+  background: white;
+  padding: 1rem;
+  max-height: 20rem;
+}
+
+div#shifts > [class*="shift-"] [class*="workers-"] > .worker {
+  list-style: none;
+  margin-bottom: 0.5rem;
+}
+
+div#shifts > [class*="shift-"] [class*="workers-"] > .worker:last-child {
+  margin-bottom: 0;
+}
+
+div.button-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+button.add-shift,
+button.add-worker,
+button.remove-worker, 
+button.remove-shift,
+button.confirm-add-worker,
+button.confirm-remove-shift {
+  background-color: transparent;
+  padding: 0.5rem 2rem;
+  color: #1b1b1b;
+  border: solid 1px #4e4e4e;
+}
+
+button.add-shift:hover,
+button.add-worker:hover,
+button.remove-worker:hover, 
+button.remove-shift:hover,
+button.confirm-add-worker:hover,
+button.confirm-remove-shift:hover {
+  cursor: pointer;
+  background-color: #1b1b1b;
+  color: white;
+}
+
+input#new-worker-input,
+input#remove-worker-input {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+span.add-worker-header,
+span.remove-shift-header,
+span.remove-worker-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 125%;
+  margin-bottom: 1rem;
+  padding-top: 1.5rem;
+}
+
+div.shift-select-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
